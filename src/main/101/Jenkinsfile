@@ -12,6 +12,9 @@ pipeline {
                 echo "env.NODE_NAME -----${env.NODE_NAME}-----"
                 echo "env.JOB_NAME  -----${env.JOB_NAME}-----"
                 sh "mvn -version"
+                git 'https://github.com/olga-polga/pipeline-hacks/src/main/101'
+                common = load 'common.groovy'
+                common.exampleMethod()
             }
         }
 
