@@ -11,15 +11,14 @@ pipeline {
                 echo "env.JAVA_HOME -----${env.JAVA_HOME}-----"
                 echo "env.NODE_NAME -----${env.NODE_NAME}-----"
                 echo "env.JOB_NAME  -----${env.JOB_NAME}-----"
+                sh "mvn -version"
             }
         }
 
-        stage('Stage Checkout') {
+        stage('Build Gradle Project') {
             steps {
-                 sh "mvn -version"
-                // Checkout code from repository and update any submodules
-                 //checkout scm
-                  git https://github.com/olga-polga/CICD.git
+                  git 'https://github.com/olga-polga/CICD.git'
+                  sh './gradlew build -x check'
             }
         }
     }
