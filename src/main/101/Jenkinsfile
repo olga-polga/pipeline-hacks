@@ -16,12 +16,10 @@ pipeline {
 
         stage('Stage Checkout') {
             steps {
-
+                 sh "mvn -version"
                 // Checkout code from repository and update any submodules
                  checkout scm
-                //sh 'git https://github.com/olga-polga/CICD.git update --init'
-                sh 'echo "${BUILD_NUMBER}"'
-                sh "mvn -version"
+                 sh 'git https://github.com/olga-polga/CICD.git update --init'
             }
         }
     }
