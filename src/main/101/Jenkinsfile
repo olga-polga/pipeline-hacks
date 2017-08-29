@@ -18,7 +18,7 @@ pipeline {
             steps {
 
                 // Checkout code from repository and update any submodules
-                //checkout scm
+                 checkout scm
                 //sh 'git https://github.com/olga-polga/CICD.git update --init'
                 sh 'echo "${BUILD_NUMBER}"'
                 sh "mvn -version"
